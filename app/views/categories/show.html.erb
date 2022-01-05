@@ -1,8 +1,11 @@
+<%# debug @category # renders code tag with serialized yaml version of obj %>
+
 <section class="categories-show">
 
   <header class="page-header">
     <h1>
-      <%= @category.name %>
+      <%# raise @category.inspect # debug %>
+      <%= @category.name %>!
       <small>(<%= pluralize @products.size, 'product' %>)</small>
     </h1>
   </header>
