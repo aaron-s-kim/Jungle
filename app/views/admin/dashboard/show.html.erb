@@ -1,10 +1,15 @@
 <h1>Admin::Dashboard#show</h1>
 
-<p>
-  Number of products in database:
-  <%= @products.all.count %><br>
-</p>
-<p>
-  Number of categories in database:
-  <%= @categories.all.count %>
-</p>
+<article class="well">
+    <h3>Products: <%= @product_count %></h3>
+    <p>See all <%= link_to 'products', admin_products_path %>.</p>
+  </article>
+
+  <article class="well">
+    <h3>Categories: <%= @category_count %></h3>
+    <ul class="list-group">
+      <% @categories.each do |category| %>
+        <li class="list-group-item"><%= category.name %></li>
+      <% end %>
+    </ul>
+</article>
