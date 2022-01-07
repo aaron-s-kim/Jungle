@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   
-  # gives User model authentication methods via bcrypt
-  has_secure_password
+  # Adds methods to set & authenticate against a BCrypt password.
+  # This requires you to have a XXX_digest attribute where XXX is attribute name of desired password.
+  has_secure_password # gives User model authentication methods via bcrypt
+
+
 
 end
