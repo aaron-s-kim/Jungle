@@ -19,6 +19,10 @@ Rails.application.routes.draw do
     resources :categories, only: [:index, :new, :create]
   end
 
+  # Sign-up routes
+  get '/signup' => 'users#new'      # renders form in browser
+  post '/users' => 'users#create'   # receives form and creates user in DB using user-provided data
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
