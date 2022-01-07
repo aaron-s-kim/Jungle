@@ -10,7 +10,6 @@
   </td>
   <td>
 
-    <%# if sale.ends_on < Date.current %>
     <% if sale.finished? %>
       <span class="label label-danger">Finished</span>
     <% elsif sale.upcoming? %>
