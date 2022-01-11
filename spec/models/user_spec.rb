@@ -40,6 +40,21 @@ RSpec.describe User, type: :model do
       end
     end
 
+    context 'email' do
+      it "should be unique" do
+        @user1 = User.new(:name => 'Test user1 name', :email => 'test@test.com', :password => 'testpassword', :password_confirmation => 'testpassword')
+        @user1.save
+
+        @user2 = User.new(
+          :name => 'Test user2 name',
+          :email => 'test@test.com', # already used email
+          :password => 'testpassword',
+          :password_confirmation => 'testpassword'
+        )
+        expect(@user2.valid?).to be false
+        expect(@user2.errors.full_messages).to include("Email has already been taken")
+      end
+    end
 
 
   end

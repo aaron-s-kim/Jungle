@@ -4,6 +4,6 @@ class User < ActiveRecord::Base
   # This requires you to have a XXX_digest attribute where XXX is attribute name of desired password.
   has_secure_password # gives User model authentication methods via bcrypt
 
-
+  validates :email, uniqueness: { case_sensitive: false}
 
 end
