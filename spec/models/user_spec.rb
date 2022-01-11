@@ -56,6 +56,23 @@ RSpec.describe User, type: :model do
       end
     end
 
+    # context 'email, first name, last name' do
+    #   it "should be required" do
+    #     @user = User.new(
+    #       # :name => 'Test user name',
+    #       # :email => 'test@test.com',
+    #       :password => 'testpassword',
+    #       :password_confirmation => 'testpassword'
+    #     )
+    #     expect(@user.valid?).to be false
+    #     expect(@user.errors.full_messages).to include("Email has already been taken")
+    #   end
+    # end
+
+    # p "_______________begin"
+    # p @user
+    # p @user.errors[:password_confirmation]
+    # p "______________end!"
 
   end
 end
