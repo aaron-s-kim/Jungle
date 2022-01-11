@@ -116,6 +116,27 @@ RSpec.describe User, type: :model do
         # p @existing_user # => nil
       end
     end
+  end
+  
+  
+  describe 'edge cases' do
+    context 'email input' do
+      it "should pass with leading/trailing spaces" do
+        @user = User.new(:first_name => 'firstname', :last_name => 'lastname', :email => 'test@test.com', :password => 'testpassword', :password_confirmation => 'testpassword')
+        @user.save
+
+        @existing_user = User.authenticate_with_credentials('  test@test.com  ', 'testpassword')
+        expect(@existing_user).not_to be(nil)
+      end
+      it "should pass with wrong email case" do
+        @user = User.new(:first_name => 'firstname', :last_name => 'lastname', :email => 'test@test.com', :password => 'testpassword', :password_confirmation => 'testpassword')
+        @user.save
+
+        @existing_user = User.authenticate_with_credentials('TEST@TEST.com', 'testpassword')
+        expect(@existing_user).not_to be(nil)
+        # p @existing_user # => nil
+      end
+    end
 
 
   end
