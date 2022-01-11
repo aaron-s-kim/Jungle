@@ -5,7 +5,7 @@ RSpec.describe User, type: :model do
     # before(:all) do
     # end
 
-    context 'passwords' do
+    context 'password presence' do
       it "should save matching passwords successfully" do
         @user = User.new(
           :first_name => 'firstname',
@@ -80,7 +80,18 @@ RSpec.describe User, type: :model do
         expect(@user).to be_invalid
         expect(@user.errors[:last_name]).to include("can't be blank")
       end
+    end
 
+    context 'password length' do
+      it "should be invalid if 5 characters or less" do
+        @user = User.new(:first_name => 'firstname', :last_name => 'lastname', :email => 'test@test.com', :password => '12345', :password_confirmation => '12345')
+        expect(@user).to be_invalid
+        expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
+      end
+      it "should be 6 characters or more" do
+        @user = User.new(:first_name => 'firstname', :last_name => 'lastname', :email => 'test@test.com', :password => '123456', :password_confirmation => '123456')
+        expect(@user).to be_valid
+      end
     end
 
   end
