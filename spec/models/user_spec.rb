@@ -95,4 +95,29 @@ RSpec.describe User, type: :model do
     end
 
   end
+
+
+  describe '.authenticate_with_credentials' do
+    context 'authentication' do
+      it "should pass with valid credentials" do
+        @user = User.new(:first_name => 'firstname', :last_name => 'lastname', :email => 'test@test.com', :password => 'testpassword', :password_confirmation => 'testpassword')
+        @user.save
+
+        @existing_user = User.authenticate_with_credentials('test@test.com', 'testpassword')
+        expect(@existing_user).not_to be(nil)
+        # p @existing_user # => #<User id: ...>
+      end
+      it "should fail with invalid credentials" do
+        @user = User.new(:first_name => 'firstname', :last_name => 'lastname', :email => 'test@test.com', :password => 'testpassword', :password_confirmation => 'testpassword')
+        @user.save
+
+        @existing_user = User.authenticate_with_credentials('test@test.com', 'invalidpassword')
+        expect(@existing_user).to be(nil)
+        # p @existing_user # => nil
+      end
+    end
+
+
+  end
+
 end
