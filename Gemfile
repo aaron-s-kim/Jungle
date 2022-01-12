@@ -39,6 +39,12 @@ gem 'faker'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+group :test do
+  gem 'capybara'
+  gem 'poltergeist'
+  gem 'database_cleaner'
+end
+
 group :development, :test do
   # Use rspec
   gem 'rspec-rails', '~> 3.5'
