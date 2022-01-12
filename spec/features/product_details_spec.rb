@@ -20,12 +20,14 @@ RSpec.feature "Visitor navigates from home to product detail page", type: :featu
     visit root_path
     click_link("Details »", match: :first)
 
-    # DEBUG
-    # puts page.html # output current HTML being rendered by browser
-    save_screenshot
-
     # VERIFY
     expect(page).to have_css 'section.products-show', count: 1
+
+    # DEBUG
+    # puts page.html
+    save_screenshot
+
+
   end
 
 end
