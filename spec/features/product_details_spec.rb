@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Visitor navigates from home to product detail page", type: :feature, js: true do
 
-  # SETUP - adds 10 products using RSpec before :each block:
+  # SETUP - adds product using RSpec before :each block:
   before :each do
     @category = Category.create! name: 'Apparel'
 
@@ -26,8 +26,6 @@ RSpec.feature "Visitor navigates from home to product detail page", type: :featu
     # DEBUG
     # puts page.html
     save_screenshot
-
-
   end
 
 end
