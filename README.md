@@ -1,6 +1,46 @@
 # Jungle
 
-A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
+Jungle is a mini e-commerce application built with Rails 4.2. It features an admin section to make modifications to products and categories, user authentication, and Stripe to handle payments. Testing was conducted with RSpec and Capybara for behavior-driven development (BDD).
+
+The following additions were made to the existing code-base:
+
+---
+
+### New pages:
+- order details
+- admin dashboard
+- about
+- categories
+
+### New features:
+- sold out badge
+- admin users can create new categories and products
+- user authentication
+
+### Bug fixes:
+- consistent money formatting
+- admin security implemented with HTTP Basic Auth
+- prevent checkout with empty cart
+
+---
+
+## Screenshots
+
+Home page
+!['Home page'](docs/home.png)
+Category page
+!['Category page'](docs/category.png)
+Product details
+!['Product details'](docs/product-details.png)
+Cart
+!['Cart'](docs/cart.png)
+Order page
+!['Order page'](docs/order.png)
+Admin product page
+!['Admin product page'](docs/admin-product.png)
+
+
+---
 
 ## Additional Steps for Apple M1 Machines
 
